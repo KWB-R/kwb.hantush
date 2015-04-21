@@ -1,0 +1,9 @@
+Package: kwb.hantush
+Version: 0.2.0
+Title: Calculation of groundwater mounding beneath a (stormwater) infiltration basin
+Author: Michael Rustler
+Maintainer: Michael Rustler <michael.rustler@kompetenz-wasser.de>
+Description: Hantush's analytical equation for estimating groundwater mounding (see page 22, http://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf)
+Depends: R (>= 3.0.0), lattice, hydroGOF
+License: GPL (>=2)
+LazyLoad: yes
