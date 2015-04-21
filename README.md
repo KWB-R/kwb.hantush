@@ -5,27 +5,28 @@ An R package for calculating groundwater mounding beneath a (stormwater) infiltr
 
 [![Build Status](https://travis-ci.org/mrustl/kwb.hantush.svg)](https://travis-ci.org/mrustl/kwb.hantush)
 
-Implementing Hantush's analytical equation for estimating groundwater mounding in 
-R 
 
-# Install from GitHub 
-```
+#Tutorial
+##1. Install from GitHub 
+
+```r
 if(!require("devtools")) { install.packages("devtools") }
 devtools::install_github(repo = "KWB-R/kwb.hantush", dependencies = TRUE)
 ```
 
-# Using the package 
+##2. Using the package 
 
-## Loading the package
-```
+###2.1 Loading the package
+
+```r
 library(kwb.hantush)
-
-## Validation
- 
-For checking the correct implementation of the Hantush equation we selected the 
-same parameterisation as in the [USGS report](http://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf) on page 22.  
-
 ```
+
+###2.2 Model validation
+ 
+For comparing the implementation of the Hantush equation the results are compared 
+
+```r
 ### Comparision of R results to all eight benchmark models in one plot
 plotModelComparison()
 
@@ -33,10 +34,11 @@ plotModelComparison()
 plotModelComparison(layout=c(1,1))
 ```
 
-## How to perform own model runs=
+## 3. How to perform model runs?
 
-### Parameterising the model
-```
+###3.1 Model parameterisation
+
+```r
 baseProps <- baseProperties( time = 2^(0:6),
                              infiltrationRate = 1,
                              basinWidth = 10,
@@ -45,12 +47,16 @@ baseProps <- baseProperties( time = 2^(0:6),
                              iniHead = 10,
                              specificYield = 0.2)
 ```
-### Run the model
-```
+
+###3.2 Running the model
+
+```r
 res <- hantushDistancesBaseProps(baseProps = baseProps)
 ```
-### Ploting the results
-```
+
+###3.3 Ploting the results
+
+```r
 cols <- length(unique(res$dat[[res$changedBaseProp.Name]]))
 mainTxt <- sprintf("Changed baseProperty: %s", res$changedBaseProp.Name)
 xyplot(WLincrease ~ x,
