@@ -24,13 +24,16 @@ library(kwb.hantush)
 
 ###2.2 Model validation
  
-For comparing the implementation of the Hantush equation the results are compared 
+For comparing the implementation of the Hantush equation the results are 
+compared to the [USGS benchmark example (page 25)](http://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf). The results can be visualised with the following code:
 
 ```r
-### Comparision of R results to all eight benchmark models in one plot
+### Comparision of R results to all 
+### eight benchmark models in one plot
 plotModelComparison()
 
-### Comparision of R results to all eight benchmark models in multiple plots (one plot for each model)
+### Comparision of R results to all 
+### eight benchmark models in multiple plots (one plot for each model)
 plotModelComparison(layout=c(1,1))
 ```
 
@@ -39,7 +42,7 @@ plotModelComparison(layout=c(1,1))
 ###3.1 Model parameterisation
 
 ```r
-baseProps <- baseProperties( time = 2^(0:6),
+baseProps <- baseProperties( time = 2^(0:6), ### for 6 different times !
                              infiltrationRate = 1,
                              basinWidth = 10,
                              basinLength = 50,
