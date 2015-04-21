@@ -3,8 +3,7 @@
   
 An R package for calculating groundwater mounding beneath a (stormwater) infiltration basin
 
-[![Build Status](https://travis-ci.org/mrustl/kwb.hantush.svg)](https://travis-ci.org/mrustl/kwb.hantush)
-
+[![Build Status](https://travis-ci.org/KWB-R/kwb.hantush.svg?branch=master)](https://travis-ci.org/KWB-R/kwb.hantush)
 
 #Tutorial
 ##1. Install from GitHub 
