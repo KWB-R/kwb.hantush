@@ -1,3 +1,7 @@
 .travis.yml
 README.md
+LICENSE
 kwb_hantush.png
+kwb.hantush.Rproj
+^.*\.Rproj$
+^\.Rproj\.user$

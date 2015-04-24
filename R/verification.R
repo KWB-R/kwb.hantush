@@ -2,7 +2,7 @@
 #' @description USGS verification example
 #' @references p.23, http://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf
 baseProps_ex1 <- function () {
-
+  
   baseProperties(time = 1.5, ### days
                  basinWidth = 33.63, ### feet
                  basinLength = 33.63, ### feet
@@ -43,6 +43,7 @@ conf_ex1 <- function (x = 0,
 #' @references p.23, http://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf
 #' @examples
 #' res <- confDistances_ex1()
+#' if(FALSE){
 #' #### Head for each time step (defined with parameter "numberTimeSteps)
 #' xyplot(head ~ x | as.factor(sprintf("%f days", timeSteps)),
 #'        data=res$timeSteps,
@@ -54,6 +55,7 @@ conf_ex1 <- function (x = 0,
 #'      data=res$simTime,
 #'      type="b",
 #'      las=1)
+#'}
 #' #### Water level increase at end of simulation & compare to alternative models
 #' modelComparison <- compareModelResults(conf = res)
 #' plotModelComparison(modelComparison = modelComparison)
@@ -62,12 +64,12 @@ confDistances_ex1 <- function (x = c(0, 0.3, 3.3, 6.6, 10, 20, 25, 30, 40, 50, 7
                                config= conf_ex1,
                                dbg = FALSE
 ) {
-
+  
   confFunction <- function (...) { config(...)}
   hantushDistances(x = x,
                    config = confFunction,
                    dbg = dbg)
-
+  
 }
 
 #' USGS verification example: get model comparison table
@@ -77,13 +79,13 @@ confDistances_ex1 <- function (x = c(0, 0.3, 3.3, 6.6, 10, 20, 25, 30, 40, 50, 7
 #' modelComparison <- getModelComparisonTable()
 
 getModelComparisonTable <- function() {
-
+  
   csvPath <- system.file("extdata",
-                        "modelComparison.csv",
-                        package="kwb.hantush")
+                         "modelComparison.csv",
+                         package="kwb.hantush")
   modelComparison <- read.csv(file = csvPath, header = TRUE, dec = ".")
-
-   return(modelComparison)
+  
+  return(modelComparison)
 }
 
 
@@ -95,52 +97,52 @@ getModelComparisonTable <- function() {
 #' @references Table 5, p.25, http://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf
 #' @seealso \code{\link{confDistances_ex1}} for the USGS example parameterisation with distances
 compareModelResults <- function (conf = confDistances_ex1() ) {
-
+  
   table <- getModelComparisonTable()
-
+  
   res <- conf$simTime[,c("x", "head")]
   ### Water level increase
   res$head <- res$head - conf$baseProps$iniHead
   names(res)[names(res)=="head"] <- "R"
-
+  
   modelComparison <-  merge(res, table)
-
-
+  
+  
   ##### Reformat
-    newNames <- names(modelComparison)[3:ncol(modelComparison)]
-    modelComparison <- reshape(data = modelComparison,times = newNames,
-                               timevar = "model",
-                               varying = list(newNames),
-                               direction = "long")
-
-    names(modelComparison)[names(modelComparison)=="Tailor"] <- "modelVal"
-
-gofRes <- data.frame()
-for (myModel in unique(modelComparison$model))
-{
-  tmp <- modelComparison[modelComparison$model == myModel, ]
-  tmp_gofRes <- t(hydroGOF::gof(sim = tmp$R,
-                                obs = tmp$modelVal,
-                                na.rm = TRUE,
-                                digits=5
-                               )
-                  )
-  colnames(tmp_gofRes) <- gsub(" %", "", colnames(tmp_gofRes))
-  tmp_gofRes <- cbind(data.frame(model=myModel),as.data.frame(tmp_gofRes))
-
-  gofRes <- rbind (gofRes, tmp_gofRes)
-}
-
+  newNames <- names(modelComparison)[3:ncol(modelComparison)]
+  modelComparison <- reshape(data = modelComparison,times = newNames,
+                             timevar = "model",
+                             varying = list(newNames),
+                             direction = "long")
+  
+  names(modelComparison)[names(modelComparison)=="Tailor"] <- "modelVal"
+  
+  gofRes <- data.frame()
+  for (myModel in unique(modelComparison$model))
+  {
+    tmp <- modelComparison[modelComparison$model == myModel, ]
+    tmp_gofRes <- t(hydroGOF::gof(sim = tmp$R,
+                                  obs = tmp$modelVal,
+                                  na.rm = TRUE,
+                                  digits=5
+    )
+    )
+    colnames(tmp_gofRes) <- gsub(" %", "", colnames(tmp_gofRes))
+    tmp_gofRes <- cbind(data.frame(model=myModel),as.data.frame(tmp_gofRes))
+    
+    gofRes <- rbind (gofRes, tmp_gofRes)
+  }
+  
   gofRes$ModelLabel <- sprintf("%s (RMSE: %1.3f feet, PBIAS: %2.1f %%, NSE: %1.3f)",
-                          gofRes$model,
-                          gofRes$RMSE,
-                          gofRes$PBIAS,
-                          gofRes$NSE)
-
-modelComparison <- merge(modelComparison, gofRes)
-
-return(modelComparison)
-
+                               gofRes$model,
+                               gofRes$RMSE,
+                               gofRes$PBIAS,
+                               gofRes$NSE)
+  
+  modelComparison <- merge(modelComparison, gofRes)
+  
+  return(modelComparison)
+  
 }
 
 #' USGS verification example: plot model comparison results
@@ -159,19 +161,19 @@ return(modelComparison)
 plotModelComparison <- function (modelComparison = compareModelResults(),
                                  title = "",
                                  ...) {
-
-print(xyplot(R + modelVal ~ x  | ModelLabel,
-             type = "b", pch = 16,
-             xlab = "x distance from the center of the recharge basin (feet) ",
-             ylab="Water level increase (feet)",
-             data=modelComparison,
-             par.settings = simpleTheme(col=c("blue","red"),
-                                        pch=c(16,16), lty=c(1,1)),
-           #  auto.key = list(points=TRUE,text=c("",,""),
-          #                   x = .6, y = .7, corner = c(0, 0))
-             auto.key=list(columns=2, text=c("R","Model"), lines=TRUE, points=FALSE),
-             main = title,
-             ...
-             )
-      )
+  
+  print(lattice::xyplot(R + modelVal ~ x  | ModelLabel,
+                        type = "b", pch = 16,
+                        xlab = "x distance from the center of the recharge basin (feet) ",
+                        ylab="Water level increase (feet)",
+                        data=modelComparison,
+                        par.settings = lattice::simpleTheme(col=c("blue","red"),
+                                                            pch=c(16,16), lty=c(1,1)),
+                        #  auto.key = list(points=TRUE,text=c("",,""),
+                        #                   x = .6, y = .7, corner = c(0, 0))
+                        auto.key=list(columns=2, text=c("R","Model"), lines=TRUE, points=FALSE),
+                        main = title,
+                        ...
+  )
+  )
 }
