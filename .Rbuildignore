@@ -2,6 +2,8 @@
 README.md
 LICENSE
 kwb_hantush.png
+kwb_hantush.xcf
 kwb.hantush.Rproj
+cran-comments.md
 ^.*\.Rproj$
 ^\.Rproj\.user$
