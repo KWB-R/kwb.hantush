@@ -6,10 +6,13 @@ based on the [Hantush equation, 1967](http://doi.org/10.1029/WR003i001p00227)
 
 [![Build Status](https://travis-ci.org/KWB-R/kwb.hantush.svg?branch=master)](https://travis-ci.org/KWB-R/kwb.hantush)
 
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/kwb.hantush)](http://cran.r-project.org/package=kwb.hantush)
 [![](http://cranlogs.r-pkg.org/badges/grand-total/kwb.hantush)](http://cran.rstudio.com/web/packages/kwb.hantush/index.html)
 [![](http://cranlogs.r-pkg.org/badges/kwb.hantush)](http://cran.rstudio.com/web/packages/kwb.hantush/index.html)
 [![](http://cranlogs.r-pkg.org/badges/last-week/kwb.hantush)](http://cran.rstudio.com/web/packages/kwb.hantush/index.html)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/kwb.hantush)](http://cran.r-project.org/package=kwb.hantush)
+
+Impact factor: [![Research software impact](http://depsy.org/api/package/cran/kwb.hantush/badge.svg)](http://depsy.org/package/r/kwb.hantush)
+
 
 #Tutorial
 ##1. Install from GitHub 
