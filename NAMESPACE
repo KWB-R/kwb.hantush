@@ -1,3 +1,5 @@
 import(lattice)
 import(hydroGOF)
+importFrom("stats", "integrate", "pnorm", "reshape")
+importFrom("utils", "read.csv")
 exportPattern("^[[:alpha:]]+")

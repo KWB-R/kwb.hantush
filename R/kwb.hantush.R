@@ -151,25 +151,18 @@ hantush <- function(x = 0,
 #' direction (L), (Default: each meter between 0-100m)
 #' @param y vector with distances from the center of the recharge basin in the y
 #' direction (L), (Default: 0 times length of x)
-#' @param config function as retrieved by hantush()
+#' @param baseProps basic model properties as retrieved by baseProperties()
 #' @param dbg If True additional debug messages are printed on screen
 #' @return Head at a given time after recharge begins
 #' @seealso \code{\link{hantush}} for parameterising the Hantush equation
 hantushDistances <- function(x = 0:10,
-                              y = rep(0, length(x)),
-                              config = hantush,
-                              dbg = TRUE) {
+                             y = rep(0, length(x)),
+                             baseProps = baseProperties(),
+                             dbg = TRUE) {
   out <- NULL
-  baseProps <- list()
   for (i in 1:length(x))
   {
-    if (i == 1) {
-      tmp <- config(x = x[i], y = y[i], dbg = dbg)
-      baseProps <- tmp$baseProps
-      tmp <- tmp$res
-    } else {
-      tmp <- config(x = x[i], y = y[i], dbg = dbg)$res
-    }
+    tmp <- hantush(x = x[i], y = y[i],baseProps = baseProps, dbg = dbg)$res
     out <- rbind(out, tmp)
   }
   
@@ -183,7 +176,7 @@ hantushDistances <- function(x = 0:10,
   
   simTime <- out[out$timeSteps == maxSimTime,c("x", "y","head") ]
   
-
+  
   out <- list(timeSteps = out,
               simTime = simTime,
               baseProps = baseProps
@@ -268,19 +261,13 @@ hantushDistancesBaseProps <- function(x = seq(0,200, 5),
                   changedBaseProp.Name,
                   parVal))
     }
-    config <- function(x,y, dbg) {
+
+     baseProps.sel[[ changedBaseProp.Name]] <- parVal
       
-      baseProps.sel[[ changedBaseProp.Name]] <- parVal
-      
-      hantush(x = x,
-              y = y,
-              baseProps = baseProps.sel,
-              dbg = dbg)
-    }
-    
+
     res <- hantushDistances(x = x,
                             y = y,
-                            config =  config,
+                            baseProps = baseProps.sel,
                             dbg = dbg)
     
     

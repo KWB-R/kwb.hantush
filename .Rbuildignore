@@ -1,5 +1,6 @@
 .travis.yml
 README.md
+README.rmd
 LICENSE
 kwb_hantush.png
 kwb_hantush.xcf

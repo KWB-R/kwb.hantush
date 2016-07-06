@@ -13,36 +13,13 @@ baseProps_ex1 <- function() {
                  numberTimeSteps = 150)
 }
 
-#' USGS verification example: model parameterisation (one distance)
+#' USGS verification example: model parameterisation (multiple distances)
 #' @param x distance from the center of the recharge basin in the x direction (L)
-#' (Default: 0 feet)
-#' @param y distance from the center of the recharge basin in the y direction (L)
-#' (Default: 0 feet)
 #' @param baseProps basic model properties as retrieved by baseProps_ex1()
 #' @param dbg If True additional messages on debug messages
 #' @references p.23, http://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf
-#' @seealso \code{\link{baseProps_ex1}} for the USGS example parameterisation
-
-conf_ex1 <- function(x = 0,
-                      y = 0,
-                      baseProps = baseProps_ex1(),
-                      dbg=FALSE) {
-  hantush(x = x,
-          y = y,
-          baseProps = baseProps,
-          dbg = dbg
-  )
-}
-
-#' USGS verification example: model parameterisation (multiple distances)
-#' @param x vector of distances from the center of the recharge basin in the x
-#' direction (L) (Default: 0 feet)
-#' @param config name of configuration function (Default: conf_ex1)
-#' @param dbg If True additional messages on debug messages
-#' @param ... further arguments passed to function "config"
-#' @references p.23, http://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf
 #' @examples
-#' res <- confDistances_ex1()
+#' res <- example1()
 #' if(FALSE){
 #' #### Head for each time step (defined with parameter "numberTimeSteps)
 #' xyplot(head ~ x | as.factor(sprintf("%f days", timeSteps)),
@@ -60,13 +37,12 @@ conf_ex1 <- function(x = 0,
 #' modelComparison <- compareModelResults(conf = res)
 #' plotModelComparison(modelComparison = modelComparison)
 
-confDistances_ex1 <- function(x = c(0, 0.3, 3.3, 6.6, 10, 20, 25, 30, 40, 50, 75, 100, 150, 200),
-                               config= conf_ex1,
-                               dbg = FALSE) {
+example1 <- function(x = c(0, 0.3, 3.3, 6.6, 10, 20, 25, 30, 40, 50, 75, 100, 150, 200),
+                     baseProps = baseProps_ex1(),
+                     dbg = FALSE) {
   
-  confFunction <- function(...) { config(...)}
   hantushDistances(x = x,
-                   config = confFunction,
+                   baseProps = baseProps,
                    dbg = dbg)
   
 }
@@ -90,12 +66,12 @@ getModelComparisonTable <- function() {
 
 #' USGS verification example: compare R results for water level increase with other
 #' models and calculate statitical goodness of fit values (e.g. RMSE, PBIAS, NSE)
-#' @param conf list as retrieved by confDistances_ex1()
+#' @param conf list as retrieved by example1()
 #' @return data.frame with R results and other model including all goodness of fit
 #' criteria calculated with gof() of package hydrogof
 #' @references Table 5, p.25, http://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf
-#' @seealso \code{\link{confDistances_ex1}} for the USGS example parameterisation with distances
-compareModelResults <- function(conf = confDistances_ex1() ) {
+#' @seealso \code{\link{example1}} for the USGS example parameterisation with distances
+compareModelResults <- function(conf = example1() ) {
   
   table <- getModelComparisonTable()
   
