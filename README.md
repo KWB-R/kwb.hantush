@@ -17,9 +17,6 @@ Impact factor: [![Research software impact](http://depsy.org/api/package/cran/kw
 #Tutorial
 ##1. Install from GitHub 
 
-```r include=FALSE
-if(!require("tutorial")) { install.packages("tutor") }
-```
 
 ```r
 if(!require("devtools")) { install.packages("devtools") }
