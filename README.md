@@ -13,6 +13,7 @@ based on the [Hantush equation, 1967](http://doi.org/10.1029/WR003i001p00227)
 
 Impact factor: [![Research software impact](http://depsy.org/api/package/cran/kwb.hantush/badge.svg)](http://depsy.org/package/r/kwb.hantush)
 
+**Cite as:** [![DOI](https://zenodo.org/badge/23293/KWB-R/kwb.hantush.svg)](https://zenodo.org/badge/latestdoi/23293/KWB-R/kwb.hantush)
 
 #Tutorial
 ##1. Install from GitHub 
