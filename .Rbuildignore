@@ -8,3 +8,7 @@ kwb.hantush.Rproj
 cran-comments.md
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^appveyor\.yml$
+^codecov\.yml$
+^docs\.*
+_pkgdown.yaml
