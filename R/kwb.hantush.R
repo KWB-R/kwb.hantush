@@ -3,8 +3,9 @@
 #' @param x x
 #' @return Error function result
 #' @references https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Normal.html
+#' @importFrom stats pnorm
 erf <- function(x) {
-  2 * pnorm(x * sqrt(2)) - 1
+  2 * stats::pnorm(x * sqrt(2)) - 1
 }
 
 #' Helper function hantushS
@@ -27,10 +28,10 @@ hantushS <- function(x, alpha, beta) {
 #' hantushSstar are printed on screen
 #' @return Hantush Sstar result
 #' @references p.22, http://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf
-
+#' @importFrom stats pnorm
 hantushSstar <- function(alpha, beta, dbg) {
   
-  x <- integrate(f = hantushS, lower = 0, upper = 1,
+  x <- stats::integrate(f = hantushS, lower = 0, upper = 1,
                  alpha = alpha, beta = beta # arguments passed to hansuhS
   )
   
@@ -55,6 +56,7 @@ hantushSstar <- function(alpha, beta, dbg) {
 #' @param numberTimeSteps number of time steps to be used for average aquifer
 #' thickness calculation (Default: 150)
 #' @return Base properties for Hantush equation
+#' @export
 #' @references p.22, http://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf
 baseProperties <- function(time = 10,
                             basinWidth = 10, ### m
@@ -85,6 +87,7 @@ baseProperties <- function(time = 10,
 #' @param dbg If True additional messages on integration quality of function
 #' hantushSstar are printed on screen
 #' @return Head at a given time after recharge begins
+#' @export
 #' @references p.22, http://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf
 #' @seealso \code{\link{baseProperties}} for basic model properties
 
@@ -154,6 +157,7 @@ hantush <- function(x = 0,
 #' @param baseProps basic model properties as retrieved by baseProperties()
 #' @param dbg If True additional debug messages are printed on screen
 #' @return Head at a given time after recharge begins
+#' @export
 #' @seealso \code{\link{hantush}} for parameterising the Hantush equation
 hantushDistances <- function(x = 0:10,
                              y = rep(0, length(x)),
@@ -199,6 +203,7 @@ hantushDistances <- function(x = 0:10,
 #' (name of base property with multiple values) and "baseProps" (complete base
 #' parameterisation)
 #' @seealso \code{\link{baseProperties}} for basic model properties
+#' @export
 #' @examples
 #'  baseProps <- baseProperties( time = 2^(0:6),
 #'                              infiltrationRate = 1,

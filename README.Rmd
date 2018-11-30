@@ -14,24 +14,24 @@ An R package for calculating groundwater mounding beneath an infiltration basin
 based on the [Hantush equation, 1967](http://doi.org/10.1029/WR003i001p00227)
 
 
-#Tutorial
-##1. Install from GitHub 
+# Tutorial
+## 1. Install from GitHub 
 
 
 ```r
-if(!require("devtools")) { install.packages("devtools") }
-devtools::install_github(repo = "KWB-R/kwb.hantush", dependencies = TRUE)
+if(!require("remotes")) { install.packages("remotes") }
+remotes::install_github(repo = "KWB-R/kwb.hantush", dependencies = TRUE)
 ```
 
-##2. Using the package 
+## 2. Using the package 
 
-###2.1 Loading the package
+### 2.1 Loading the package
 
 ```r
 library(kwb.hantush)
 ```
 
-###2.2 Model validation
+### 2.2 Model validation
  
 For comparing the implementation of the [Hantush equation, 1967](http://doi.org/10.1029/WR003i001p00227) the results are 
 compared to the [USGS benchmark example (page 25)](http://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf). The results can be visualised with the following code:
@@ -48,7 +48,7 @@ plotModelComparison(layout=c(1,1))
 
 ## 3. How to perform model runs?
 
-###3.1 Model parameterisation
+### 3.1 Model parameterisation
 
 ```r
 baseProps <- baseProperties( time = 2^(0:6), ## day, for 6 different times !
@@ -60,13 +60,13 @@ baseProps <- baseProperties( time = 2^(0:6), ## day, for 6 different times !
                              specificYield = 0.2)
 ```
 
-###3.2 Running the model
+### 3.2 Running the model
 
 ```r
 res <- hantushDistancesBaseProps(baseProps = baseProps)
 ```
 
-###3.3 Ploting the results
+### 3.3 Ploting the results
 
 ```r
 cols <- length(unique(res$dat[[res$changedBaseProp.Name]]))

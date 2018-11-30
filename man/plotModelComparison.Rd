@@ -4,8 +4,8 @@
 \alias{plotModelComparison}
 \title{USGS verification example: plot model comparison results}
 \usage{
-plotModelComparison(modelComparison = compareModelResults(), title = "",
-  ...)
+plotModelComparison(modelComparison = compareModelResults(),
+  title = "", ...)
 }
 \arguments{
 \item{modelComparison}{data.frame as retrieved by compareModelResults(),
@@ -30,4 +30,3 @@ plotModelComparison(title = "Model comparison",
 \seealso{
 \code{\link{compareModelResults}} for comparison with USGS benchmark models
 }
-

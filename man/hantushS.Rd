@@ -22,4 +22,3 @@ Helper function hantushS
 \references{
 p.22, http://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf
 }
-

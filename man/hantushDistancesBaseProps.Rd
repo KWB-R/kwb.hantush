@@ -6,9 +6,9 @@
 also a vector for one of the base properties}
 \usage{
 hantushDistancesBaseProps(x = seq(0, 200, 5), y = rep(0, length(x)),
-  baseProps = baseProperties(time = 2^(0:6), infiltrationRate = 1, basinWidth
-  = 10, basinLength = 50, horizConductivity = 10, iniHead = 10, specificYield =
-  0.2), dbg = FALSE)
+  baseProps = baseProperties(time = 2^(0:6), infiltrationRate = 1,
+  basinWidth = 10, basinLength = 50, horizConductivity = 10, iniHead = 10,
+  specificYield = 0.2), dbg = FALSE)
 }
 \arguments{
 \item{x}{vector with distances from the center of the recharge basin in the x
@@ -53,4 +53,3 @@ xyplot(WLincrease ~ x,
 \seealso{
 \code{\link{baseProperties}} for basic model properties
 }
-

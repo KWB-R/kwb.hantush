@@ -18,4 +18,3 @@ Error function
 \references{
 https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Normal.html
 }
-

@@ -27,4 +27,3 @@ Hantush distance: for for multiple coordinate
 \seealso{
 \code{\link{hantush}} for parameterising the Hantush equation
 }
-

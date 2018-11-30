@@ -8,8 +8,8 @@
 <title>Calculation of Groundwater Mounding Beneath an Infiltration Basin • kwb.hantush</title>
 <!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="jquery.sticky-kit.min.js"></script><script src="pkgdown.js"></script><meta property="og:title" content="Calculation of Groundwater Mounding Beneath an Infiltration Basin">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
+<script src="pkgdown.js"></script><meta property="og:title" content="Calculation of Groundwater Mounding Beneath an Infiltration Basin">
 <meta property="og:description" content="Calculation groundwater mounding beneath an infiltration basin
     based on the Hantush (1967) equation (http://doi.org/10.1029/WR003i001p00227).
     The correct implementation is shown with a verification example based on a USGS
@@ -52,7 +52,14 @@
   <a href="news/index.html">Changelog</a>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+  <a href="http://github.com/kwb.hantush/">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -75,8 +82,8 @@
 <div id="install-from-github" class="section level2">
 <h2 class="hasAnchor">
 <a href="#install-from-github" class="anchor"></a>1. Install from GitHub</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(<span class="st">"devtools"</span>)) { <span class="kw">install.packages</span>(<span class="st">"devtools"</span>) }
-devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="dt">repo =</span> <span class="st">"KWB-R/kwb.hantush"</span>, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(<span class="st">"remotes"</span>)) { <span class="kw">install.packages</span>(<span class="st">"remotes"</span>) }</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">remotes<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/remotes/topics/install_github">install_github</a></span>(<span class="dt">repo =</span> <span class="st">"KWB-R/kwb.hantush"</span>, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 </div>
 <div id="using-the-package" class="section level2">
 <h2 class="hasAnchor">
@@ -84,19 +91,19 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <div id="loading-the-package" class="section level3">
 <h3 class="hasAnchor">
 <a href="#loading-the-package" class="anchor"></a>2.1 Loading the package</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(kwb.hantush)</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">library</span>(kwb.hantush)</a></code></pre></div>
 </div>
 <div id="model-validation" class="section level3">
 <h3 class="hasAnchor">
 <a href="#model-validation" class="anchor"></a>2.2 Model validation</h3>
 <p>For comparing the implementation of the <a href="http://doi.org/10.1029/WR003i001p00227">Hantush equation, 1967</a> the results are compared to the <a href="http://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf">USGS benchmark example (page 25)</a>. The results can be visualised with the following code:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">### Comparision of R results to all 
-### eight benchmark models in one plot
-<span class="kw"><a href="reference/plotModelComparison.html">plotModelComparison</a></span>()
-
-### Comparision of R results to all 
-### eight benchmark models in multiple plots (one plot for each model)
-<span class="kw"><a href="reference/plotModelComparison.html">plotModelComparison</a></span>(<span class="dt">layout=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">### Comparision of R results to all </a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">### eight benchmark models in one plot</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw"><a href="reference/plotModelComparison.html">plotModelComparison</a></span>()</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">### Comparision of R results to all </a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">### eight benchmark models in multiple plots (one plot for each model)</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="kw"><a href="reference/plotModelComparison.html">plotModelComparison</a></span>(<span class="dt">layout=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</a></code></pre></div>
 </div>
 </div>
 <div id="how-to-perform-model-runs" class="section level2">
@@ -105,30 +112,30 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <div id="model-parameterisation" class="section level3">
 <h3 class="hasAnchor">
 <a href="#model-parameterisation" class="anchor"></a>3.1 Model parameterisation</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">baseProps &lt;-<span class="st"> </span><span class="kw"><a href="reference/baseProperties.html">baseProperties</a></span>( <span class="dt">time =</span> <span class="dv">2</span><span class="op">^</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">6</span>), ## day, for 6 different times !
-                             <span class="dt">infiltrationRate =</span> <span class="dv">1</span>, ## meter / day
-                             <span class="dt">basinWidth =</span> <span class="dv">10</span>, ## meter
-                             <span class="dt">basinLength =</span> <span class="dv">50</span>, ## meter
-                             <span class="dt">horizConductivity =</span> <span class="dv">10</span>, ## meter / day
-                             <span class="dt">iniHead =</span> <span class="dv">10</span>, ## meter
-                             <span class="dt">specificYield =</span> <span class="fl">0.2</span>)</code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">baseProps &lt;-<span class="st"> </span><span class="kw"><a href="reference/baseProperties.html">baseProperties</a></span>( <span class="dt">time =</span> <span class="dv">2</span><span class="op">^</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">6</span>), ## day, for 6 different times !</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">                             <span class="dt">infiltrationRate =</span> <span class="dv">1</span>, ## meter / day</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">                             <span class="dt">basinWidth =</span> <span class="dv">10</span>, ## meter</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">                             <span class="dt">basinLength =</span> <span class="dv">50</span>, ## meter</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">                             <span class="dt">horizConductivity =</span> <span class="dv">10</span>, ## meter / day</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">                             <span class="dt">iniHead =</span> <span class="dv">10</span>, ## meter</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">                             <span class="dt">specificYield =</span> <span class="fl">0.2</span>)</a></code></pre></div>
 </div>
 <div id="running-the-model" class="section level3">
 <h3 class="hasAnchor">
 <a href="#running-the-model" class="anchor"></a>3.2 Running the model</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">res &lt;-<span class="st"> </span><span class="kw"><a href="reference/hantushDistancesBaseProps.html">hantushDistancesBaseProps</a></span>(<span class="dt">baseProps =</span> baseProps)</code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">res &lt;-<span class="st"> </span><span class="kw"><a href="reference/hantushDistancesBaseProps.html">hantushDistancesBaseProps</a></span>(<span class="dt">baseProps =</span> baseProps)</a></code></pre></div>
 </div>
 <div id="ploting-the-results" class="section level3">
 <h3 class="hasAnchor">
 <a href="#ploting-the-results" class="anchor"></a>3.3 Ploting the results</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cols &lt;-<span class="st"> </span><span class="kw">length</span>(<span class="kw">unique</span>(res<span class="op">$</span>dat[[res<span class="op">$</span>changedBaseProp.Name]]))
-mainTxt &lt;-<span class="st"> </span><span class="kw">sprintf</span>(<span class="st">"Changed baseProperty: %s"</span>, res<span class="op">$</span>changedBaseProp.Name)
-<span class="kw">xyplot</span>(WLincrease <span class="op">~</span><span class="st"> </span>x,
-       <span class="dt">groups=</span>res<span class="op">$</span>dat[[res<span class="op">$</span>changedBaseProp.Name]],
-       <span class="dt">data=</span>res<span class="op">$</span>dat,
-       <span class="dt">type=</span><span class="st">"b"</span>,
-       <span class="dt">auto.key=</span><span class="kw">list</span>(<span class="dt">columns=</span>cols),
-       <span class="dt">main=</span>mainTxt)</code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">cols &lt;-<span class="st"> </span><span class="kw">length</span>(<span class="kw">unique</span>(res<span class="op">$</span>dat[[res<span class="op">$</span>changedBaseProp.Name]]))</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">mainTxt &lt;-<span class="st"> </span><span class="kw">sprintf</span>(<span class="st">"Changed baseProperty: %s"</span>, res<span class="op">$</span>changedBaseProp.Name)</a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="kw">xyplot</span>(WLincrease <span class="op">~</span><span class="st"> </span>x,</a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">       <span class="dt">groups=</span>res<span class="op">$</span>dat[[res<span class="op">$</span>changedBaseProp.Name]],</a>
+<a class="sourceLine" id="cb6-5" data-line-number="5">       <span class="dt">data=</span>res<span class="op">$</span>dat,</a>
+<a class="sourceLine" id="cb6-6" data-line-number="6">       <span class="dt">type=</span><span class="st">"b"</span>,</a>
+<a class="sourceLine" id="cb6-7" data-line-number="7">       <span class="dt">auto.key=</span><span class="kw">list</span>(<span class="dt">columns=</span>cols),</a>
+<a class="sourceLine" id="cb6-8" data-line-number="8">       <span class="dt">main=</span>mainTxt)</a></code></pre></div>
 </div>
 </div>
 </div>
@@ -139,6 +146,8 @@ mainTxt &lt;-<span class="st"> </span><span class="kw">sprintf</span>(<span clas
 <h2>Links</h2>
 <ul class="list-unstyled">
 <li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=kwb.hantush">https://​cloud.r-project.org/​package=kwb.hantush</a>
+</li>
+<li>Browse source code at <br><a href="http://github.com/kwb.hantush/">http://​github.com/​kwb.hantush/​</a>
 </li>
 <li>Report a bug at <br><a href="https://github.com/KWB-R/kwb.hantush/issues">https://​github.com/​KWB-R/​kwb.hantush/​issues</a>
 </li>

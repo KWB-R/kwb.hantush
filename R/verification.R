@@ -1,6 +1,7 @@
 #' USGS verification example: base parameteristion
 #' @description USGS verification example
 #' @references p.23, http://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf
+#' @export
 baseProps_ex1 <- function() {
   
   baseProperties(time = 1.5, ### days
@@ -18,6 +19,7 @@ baseProps_ex1 <- function() {
 #' @param baseProps basic model properties as retrieved by baseProps_ex1()
 #' @param dbg If True additional messages on debug messages
 #' @references p.23, http://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf
+#' @export
 #' @examples
 #' res <- example1()
 #' if(FALSE){
@@ -50,15 +52,16 @@ example1 <- function(x = c(0, 0.3, 3.3, 6.6, 10, 20, 25, 30, 40, 50, 75, 100, 15
 #' USGS verification example: get model comparison table
 #' @return data.frame with water level increase of different model approaches
 #' @references Table 5, p.25, http://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf
+#' @importFrom utils read.csv
+#' @export
 #' @examples
 #' modelComparison <- getModelComparisonTable()
-
 getModelComparisonTable <- function() {
   
   csvPath <- system.file("extdata",
                          "modelComparison.csv",
                          package = "kwb.hantush")
-  modelComparison <- read.csv(file = csvPath, header = TRUE, dec = ".")
+  modelComparison <- utils::read.csv(file = csvPath, header = TRUE, dec = ".")
   
   return(modelComparison)
 }
@@ -69,8 +72,10 @@ getModelComparisonTable <- function() {
 #' @param conf list as retrieved by example1()
 #' @return data.frame with R results and other model including all goodness of fit
 #' criteria calculated with gof() of package hydrogof
+#' @export
 #' @references Table 5, p.25, http://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf
 #' @seealso \code{\link{example1}} for the USGS example parameterisation with distances
+#' @importFrom stats reshape
 compareModelResults <- function(conf = example1() ) {
   
   table <- getModelComparisonTable()
@@ -85,7 +90,7 @@ compareModelResults <- function(conf = example1() ) {
   
   ##### Reformat
   newNames <- names(modelComparison)[3:ncol(modelComparison)]
-  modelComparison <- reshape(data = modelComparison,times = newNames,
+  modelComparison <- stats::reshape(data = modelComparison,times = newNames,
                              timevar = "model",
                              varying = list(newNames),
                              direction = "long")
@@ -126,7 +131,9 @@ compareModelResults <- function(conf = example1() ) {
 #' @param title to be used as title above plot (Default: "")
 #' @param ... further arguments passed to function xyplot()
 #' @return model comparison goplots
+#' @export
 #' @seealso \code{\link{compareModelResults}} for comparison with USGS benchmark models
+#' @importFrom lattice xyplot
 #' @examples
 #' ### Plot model comparison with title "Model comparison" and one plot for
 #' ### each page

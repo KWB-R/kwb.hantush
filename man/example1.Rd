@@ -4,8 +4,8 @@
 \alias{example1}
 \title{USGS verification example: model parameterisation (multiple distances)}
 \usage{
-example1(x = c(0, 0.3, 3.3, 6.6, 10, 20, 25, 30, 40, 50, 75, 100, 150, 200),
-  baseProps = baseProps_ex1(), dbg = FALSE)
+example1(x = c(0, 0.3, 3.3, 6.6, 10, 20, 25, 30, 40, 50, 75, 100, 150,
+  200), baseProps = baseProps_ex1(), dbg = FALSE)
 }
 \arguments{
 \item{x}{distance from the center of the recharge basin in the x direction (L)}
@@ -39,4 +39,3 @@ plotModelComparison(modelComparison = modelComparison)
 \references{
 p.23, http://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf
 }
-
