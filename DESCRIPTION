@@ -9,14 +9,14 @@ Description: Calculation groundwater mounding beneath an infiltration basin
     The correct implementation is shown with a verification example based on a USGS
     report (page 25, http://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf).
 Depends:
-    R (>= 3.0.0),
+    R (>= 3.0),
     lattice
 Imports:
     hydroGOF
 License: MIT + file LICENSE
 LazyLoad: yes
 Encoding: UTF-8
-URL: http://github.com/kwb.hantush/
+URL: http://github.com/KWB-R/kwb.hantush/
 BugReports: https://github.com/KWB-R/kwb.hantush/issues
 RoxygenNote: 6.1.0
 Suggests: 
