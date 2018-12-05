@@ -3,6 +3,8 @@
 
 - current development version
 
+- add two vignettes for package usage and shiny apps
+
 # [kwb.hantush 0.2.1](https://github.com/KWB-R/kwb.hantush/releases/tag/v.0.2.1)
 
 - release as published on CRAN

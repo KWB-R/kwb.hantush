@@ -2,7 +2,7 @@
 % Please edit documentation in R/kwb.hantush.R
 \name{hantushDistances}
 \alias{hantushDistances}
-\title{Hantush distance: for for multiple coordinate}
+\title{Hantush distance: for multiple coordinates}
 \usage{
 hantushDistances(x = 0:10, y = rep(0, length(x)),
   baseProps = baseProperties(), dbg = TRUE)
@@ -22,7 +22,7 @@ direction (L), (Default: 0 times length of x)}
 Head at a given time after recharge begins
 }
 \description{
-Hantush distance: for for multiple coordinate
+Hantush distance: for multiple coordinates
 }
 \seealso{
 \code{\link{hantush}} for parameterising the Hantush equation

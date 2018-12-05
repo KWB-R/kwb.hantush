@@ -148,7 +148,7 @@ hantush <- function(x = 0,
               baseProps = baseProps))
 }
 
-#' Hantush distance: for for multiple coordinate
+#' Hantush distance: for multiple coordinates
 #'
 #' @param x vector with distances from the center of the recharge basin in the x
 #' direction (L), (Default: each meter between 0-100m)

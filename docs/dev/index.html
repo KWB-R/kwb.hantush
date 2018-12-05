@@ -13,7 +13,7 @@
 <meta property="og:description" content="Calculation groundwater mounding beneath an infiltration basin
     based on the Hantush (1967) equation (http://doi.org/10.1029/WR003i001p00227).
     The correct implementation is shown with a verification example based on a USGS
-    report (page 25, http://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf).">
+    report (page 25, http://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf#page=35).">
 <meta name="twitter:card" content="summary">
 <meta name="robots" content="noindex">
 <!-- mathjax --><script src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!--[if lt IE 9]>
@@ -48,6 +48,21 @@
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="articles/shiny-app.html">Shiny App</a>
+    </li>
+    <li>
+      <a href="articles/tutorial.html">Tutorial</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="news/index.html">Changelog</a>
 </li>
@@ -75,69 +90,26 @@
     
     
 
-<p>An R package for calculating groundwater mounding beneath an infiltration basin based on the <a href="http://doi.org/10.1029/WR003i001p00227">Hantush equation, 1967</a></p>
-<div id="tutorial" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#tutorial" class="anchor"></a>Tutorial</h1></div>
-<div id="install-from-github" class="section level2">
+<p>An R package for calculating groundwater mounding beneath an infiltration basin based on the <a href="http://doi.org/10.1029/WR003i001p00227">Hantush equation, 1967</a>.</p>
+<div id="installation" class="section level2">
 <h2 class="hasAnchor">
-<a href="#install-from-github" class="anchor"></a>1. Install from GitHub</h2>
+<a href="#installation" class="anchor"></a>Installation</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(<span class="st">"remotes"</span>)) { <span class="kw">install.packages</span>(<span class="st">"remotes"</span>) }</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2">remotes<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/remotes/topics/install_github">install_github</a></span>(<span class="dt">repo =</span> <span class="st">"KWB-R/kwb.hantush"</span>, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 </div>
-<div id="using-the-package" class="section level2">
+<div id="further-documentation" class="section level2">
 <h2 class="hasAnchor">
-<a href="#using-the-package" class="anchor"></a>2. Using the package</h2>
-<div id="loading-the-package" class="section level3">
-<h3 class="hasAnchor">
-<a href="#loading-the-package" class="anchor"></a>2.1 Loading the package</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">library</span>(kwb.hantush)</a></code></pre></div>
+<a href="#further-documentation" class="anchor"></a>Further Documentation</h2>
+<p>Please have a look at the following two <a href="articles/index.html">articles</a>:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong><a href="articles/tutorial.html">Tutorial</a></strong>: for using the R package</p></li>
+<li><p><strong><a href="articles/shiny-app.html">Shiny App</a></strong>: for interactively “playing” with the app</p></li>
+</ol>
 </div>
-<div id="model-validation" class="section level3">
-<h3 class="hasAnchor">
-<a href="#model-validation" class="anchor"></a>2.2 Model validation</h3>
-<p>For comparing the implementation of the <a href="http://doi.org/10.1029/WR003i001p00227">Hantush equation, 1967</a> the results are compared to the <a href="http://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf">USGS benchmark example (page 25)</a>. The results can be visualised with the following code:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">### Comparision of R results to all </a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">### eight benchmark models in one plot</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw"><a href="reference/plotModelComparison.html">plotModelComparison</a></span>()</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5">### Comparision of R results to all </a>
-<a class="sourceLine" id="cb3-6" data-line-number="6">### eight benchmark models in multiple plots (one plot for each model)</a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="kw"><a href="reference/plotModelComparison.html">plotModelComparison</a></span>(<span class="dt">layout=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</a></code></pre></div>
-</div>
-</div>
-<div id="how-to-perform-model-runs" class="section level2">
+<div id="recommended-literature" class="section level2">
 <h2 class="hasAnchor">
-<a href="#how-to-perform-model-runs" class="anchor"></a>3. How to perform model runs?</h2>
-<div id="model-parameterisation" class="section level3">
-<h3 class="hasAnchor">
-<a href="#model-parameterisation" class="anchor"></a>3.1 Model parameterisation</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">baseProps &lt;-<span class="st"> </span><span class="kw"><a href="reference/baseProperties.html">baseProperties</a></span>( <span class="dt">time =</span> <span class="dv">2</span><span class="op">^</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">6</span>), ## day, for 6 different times !</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">                             <span class="dt">infiltrationRate =</span> <span class="dv">1</span>, ## meter / day</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">                             <span class="dt">basinWidth =</span> <span class="dv">10</span>, ## meter</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">                             <span class="dt">basinLength =</span> <span class="dv">50</span>, ## meter</a>
-<a class="sourceLine" id="cb4-5" data-line-number="5">                             <span class="dt">horizConductivity =</span> <span class="dv">10</span>, ## meter / day</a>
-<a class="sourceLine" id="cb4-6" data-line-number="6">                             <span class="dt">iniHead =</span> <span class="dv">10</span>, ## meter</a>
-<a class="sourceLine" id="cb4-7" data-line-number="7">                             <span class="dt">specificYield =</span> <span class="fl">0.2</span>)</a></code></pre></div>
-</div>
-<div id="running-the-model" class="section level3">
-<h3 class="hasAnchor">
-<a href="#running-the-model" class="anchor"></a>3.2 Running the model</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">res &lt;-<span class="st"> </span><span class="kw"><a href="reference/hantushDistancesBaseProps.html">hantushDistancesBaseProps</a></span>(<span class="dt">baseProps =</span> baseProps)</a></code></pre></div>
-</div>
-<div id="ploting-the-results" class="section level3">
-<h3 class="hasAnchor">
-<a href="#ploting-the-results" class="anchor"></a>3.3 Ploting the results</h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">cols &lt;-<span class="st"> </span><span class="kw">length</span>(<span class="kw">unique</span>(res<span class="op">$</span>dat[[res<span class="op">$</span>changedBaseProp.Name]]))</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">mainTxt &lt;-<span class="st"> </span><span class="kw">sprintf</span>(<span class="st">"Changed baseProperty: %s"</span>, res<span class="op">$</span>changedBaseProp.Name)</a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="kw">xyplot</span>(WLincrease <span class="op">~</span><span class="st"> </span>x,</a>
-<a class="sourceLine" id="cb6-4" data-line-number="4">       <span class="dt">groups=</span>res<span class="op">$</span>dat[[res<span class="op">$</span>changedBaseProp.Name]],</a>
-<a class="sourceLine" id="cb6-5" data-line-number="5">       <span class="dt">data=</span>res<span class="op">$</span>dat,</a>
-<a class="sourceLine" id="cb6-6" data-line-number="6">       <span class="dt">type=</span><span class="st">"b"</span>,</a>
-<a class="sourceLine" id="cb6-7" data-line-number="7">       <span class="dt">auto.key=</span><span class="kw">list</span>(<span class="dt">columns=</span>cols),</a>
-<a class="sourceLine" id="cb6-8" data-line-number="8">       <span class="dt">main=</span>mainTxt)</a></code></pre></div>
-</div>
-</div>
+<a href="#recommended-literature" class="anchor"></a>Recommended Literature</h2>
+<p>The <a href="https://www.usgs.gov/">USGS</a> report <a href="https://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf">‘Simulation of Groundwater Mounding Beneath Hypothetical Stormwater Infiltration Basins’</a> by <a href="https://pubs.usgs.gov/sir/2010/5102/">Carleton (2010)</a> provides more background information on the Hantush calculation and also compares it to alternative approaches. In order to validate the calculation accuracy of the R package <code>kwb.hantush</code> it is benchmarked against these solutions <a href="articles/tutorial.html#model-validation">here</a>.</p>
 </div>
   </div>
 

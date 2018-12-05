@@ -1,0 +1,58 @@
+---
+title: "Shiny App"
+author: "Michael Rustler"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Shiny App}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+## 1 Online App
+
+Using the service provided by [mybinder.org](https://mybinder.org), 
+the Hantush shiny app (originally developed in for the Berlin Long Night of Sciences in 2015) can be used online - either in German 
+or in English language.
+
+### 1.1 German
+
+
+**Important note:** in order to see the plot in the tab **Erforschen** (see screenshot below) it is necessary to enable the checkbox **Details** once after starting the app.
+
+[![Binder](http://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/kwb-r/apps/GWAmanager?urlpath=shiny)
+ 
+[![Screenshot of GWAmanager app](images/GWAmanager_screenshot.jpg)](https://mybinder.org/v2/gh/kwb-r/apps/GWAmanager?urlpath=shiny)
+
+
+The app`s source code is available [here](https://github.com/KWB-R/apps/tree/GWAmanager).
+
+### 1.2 English
+
+**To do:** add app to [https://github.com/kwb-r/apps](https://github.com/kwb-r/apps)
+
+
+
+
+## 2 Offline App 
+
+Using the R function `shiny::runGitHub()` allows to download and run the app locally.
+
+### 2.1 German
+
+```{r eval = FALSE}
+shiny::runGitHub("kwb-r/apps", ref="GWAmanager")
+```
+
+
+### 2.2 English
+
+**To do:** add app to [https://github.com/kwb-r/apps](https://github.com/kwb-r/apps)
