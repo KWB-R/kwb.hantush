@@ -26,8 +26,7 @@ Please have a look at the following two [articles](articles/index.html):
 
 1.  **[Tutorial](articles/tutorial.html)**: for using the R package
 
-2.  **[Shiny App](articles/shiny-app.html)**: for interactively "playing" 
-with the app
+2.  **[Shiny App](articles/shiny-app.html)**: for interactively "exploring" the impact of the different input model parameters on the groundwater mounding
 
 ## Recommended Literature 
 
