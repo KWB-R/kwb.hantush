@@ -1,6 +1,6 @@
 .travis.yml
 README.md
-index.Rmd
+index.md
 LICENSE.md
 kwb_hantush.png
 kwb_hantush.xcf

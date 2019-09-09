@@ -17,6 +17,28 @@ Impact factor: [![Research software impact](http://depsy.org/api/package/cran/kw
 
 **Cite as:** [![DOI](https://zenodo.org/badge/23293/KWB-R/kwb.hantush.svg)](https://zenodo.org/badge/latestdoi/23293/KWB-R/kwb.hantush)
 
+## Installation
+
+For details on how to install KWB-R packages checkout our [installation tutorial](https://kwb-r.github.io/kwb.pkgbuild/articles/install.html).
+
+```r
+### Optionally: specify GitHub Personal Access Token (GITHUB_PAT)
+### See here why this might be important for you:
+### https://kwb-r.github.io/kwb.pkgbuild/articles/install.html#set-your-github_pat
+
+# Sys.setenv(GITHUB_PAT = "mysecret_access_token")
+
+# Install package "remotes" from CRAN
+if (! require("remotes")) {
+  install.packages("remotes", repos = "https://cloud.r-project.org")
+}
+
+# Install KWB package 'kwb.hantush' from GitHub
+
+remotes::install_github("kwb-r/kwb.hantush")
+```
+
+
 ## Documentation
 
 Development version: [https://kwb-r.github.io/kwb.hantush/dev](https://kwb-r.github.io/kwb.hantush/dev)
