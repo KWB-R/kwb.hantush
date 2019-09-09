@@ -1,4 +1,4 @@
-.travis.yml
+^\.travis\.yml$
 README.md
 index.md
 LICENSE.md
