@@ -3,7 +3,5 @@
 #
 
 test_that("erf() works", {
-
   expect_error(kwb.hantush:::erf())
 })
-

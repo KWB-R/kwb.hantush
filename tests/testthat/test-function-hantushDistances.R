@@ -3,7 +3,5 @@
 #
 
 test_that("hantushDistances() works", {
-
   kwb.hantush:::hantushDistances()
 })
-

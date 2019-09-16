@@ -3,7 +3,5 @@
 #
 
 test_that("compareModelResults() works", {
-
   kwb.hantush:::compareModelResults()
 })
-

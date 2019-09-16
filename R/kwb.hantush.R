@@ -17,7 +17,7 @@ erf <- function(x) {
 #' @references p.22, \url{https://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf}
 hantushS <- function(x, alpha, beta) {
   xRoot <- sqrt(x)
-  erf(alpha/xRoot) * erf(beta/xRoot)
+  erf(alpha / xRoot) * erf(beta / xRoot)
 }
 
 
@@ -30,11 +30,11 @@ hantushS <- function(x, alpha, beta) {
 #' @references p.22, \url{https://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf}
 #' @importFrom stats pnorm
 hantushSstar <- function(alpha, beta, dbg) {
-  
-  x <- stats::integrate(f = hantushS, lower = 0, upper = 1,
-                 alpha = alpha, beta = beta # arguments passed to hansuhS
+  x <- stats::integrate(
+    f = hantushS, lower = 0, upper = 1,
+    alpha = alpha, beta = beta # arguments passed to hansuhS
   )
-  
+
   if (dbg) {
     msg <- sprintf("Sstar: %3.5f with an absolute error < %f", x$value, x$abs.error)
     message(msg)
@@ -59,24 +59,24 @@ hantushSstar <- function(alpha, beta, dbg) {
 #' @export
 #' @references p.22, \url{https://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf}
 baseProperties <- function(time = 10,
-                            basinWidth = 10, ### m
-                            basinLength = 10, ### m
-                            infiltrationRate = 0.5 , ### 0.5 m/day
-                            horizConductivity = 10, ### m/d
-                            iniHead = 10, ### meter
-                            specificYield = 0.2,
-                            numberTimeSteps = 150) {
-  
-  x <- list(time = time,
-            basinWidth = basinWidth,
-            basinLength = basinLength,
-            infiltrationRate = infiltrationRate,
-            horizConductivity = horizConductivity,
-            iniHead = iniHead,
-            specificYield = specificYield,
-            numberTimeSteps = numberTimeSteps)
+                           basinWidth = 10, ### m
+                           basinLength = 10, ### m
+                           infiltrationRate = 0.5, ### 0.5 m/day
+                           horizConductivity = 10, ### m/d
+                           iniHead = 10, ### meter
+                           specificYield = 0.2,
+                           numberTimeSteps = 150) {
+  x <- list(
+    time = time,
+    basinWidth = basinWidth,
+    basinLength = basinLength,
+    infiltrationRate = infiltrationRate,
+    horizConductivity = horizConductivity,
+    iniHead = iniHead,
+    specificYield = specificYield,
+    numberTimeSteps = numberTimeSteps
+  )
   return(x)
-  
 }
 
 #' Hantush equation
@@ -92,19 +92,19 @@ baseProperties <- function(time = 10,
 #' @seealso \code{\link{baseProperties}} for basic model properties
 
 hantush <- function(x = 0,
-                     y = 0,
-                     baseProps = baseProperties(),
-                     dbg = TRUE) {
+                    y = 0,
+                    baseProps = baseProperties(),
+                    dbg = TRUE) {
   indices <- seq_len(baseProps$numberTimeSteps)
-  
-  timeSteps <- baseProps$time/baseProps$numberTimeSteps * indices
-  
+
+  timeSteps <- baseProps$time / baseProps$numberTimeSteps * indices
+
   h <- vector(length = baseProps$numberTimeSteps)
-  
+
   L <- baseProps$basinLength
   sy <- baseProps$specificYield
   W <- baseProps$basinWidth
-  
+
   for (i in indices)
   {
     if (i == 1) {
@@ -112,40 +112,45 @@ hantush <- function(x = 0,
     } else {
       avgHead <- 0.5 * (baseProps$iniHead + h[i - 1])
     }
-    
+
     if (dbg) {
-      cat(sprintf("Elapsed time: %4.5f ;  Havg: %4.5f Hi-1: %4.5f\n\n",
-                  timeSteps[i], avgHead, h[i - 1] ))
+      cat(sprintf(
+        "Elapsed time: %4.5f ;  Havg: %4.5f Hi-1: %4.5f\n\n",
+        timeSteps[i], avgHead, h[i - 1]
+      ))
     }
-    
+
     diffusivity <- baseProps$horizConductivity * avgHead / sy
-    
-    factor1 <- (baseProps$infiltrationRate * avgHead * timeSteps[i]) / (2*sy)
-    
-    divisor <- sqrt( 4 * timeSteps[i] * baseProps$horizConductivity *  avgHead / baseProps$specificYield)
-    
+
+    factor1 <- (baseProps$infiltrationRate * avgHead * timeSteps[i]) / (2 * sy)
+
+    divisor <- sqrt(4 * timeSteps[i] * baseProps$horizConductivity * avgHead / baseProps$specificYield)
+
     alphaPlus <- (L + x) / divisor
     alphaMinus <- (L - x) / divisor
-    
+
     betaPlus <- (W + y) / divisor
     betaMinus <- (W - y) / divisor
-    
+
     factor2 <-
       hantushSstar(alphaPlus, betaPlus, dbg) +
       hantushSstar(alphaPlus, betaMinus, dbg) +
       hantushSstar(alphaMinus, betaPlus, dbg) +
       hantushSstar(alphaMinus, betaMinus, dbg)
-    
-    h[i] <- sqrt(factor1 * factor2 + baseProps$iniHead ^ 2)
-    
+
+    h[i] <- sqrt(factor1 * factor2 + baseProps$iniHead^2)
   }
-  
-  res <- data.frame(timeSteps = timeSteps,
-                    x = rep(x, baseProps$numberTimeSteps),
-                    y = rep(y, baseProps$numberTimeSteps),
-                    head = h)
-  return(list(res = res,
-              baseProps = baseProps))
+
+  res <- data.frame(
+    timeSteps = timeSteps,
+    x = rep(x, baseProps$numberTimeSteps),
+    y = rep(y, baseProps$numberTimeSteps),
+    head = h
+  )
+  return(list(
+    res = res,
+    baseProps = baseProps
+  ))
 }
 
 #' Hantush distance: for multiple coordinates
@@ -166,26 +171,26 @@ hantushDistances <- function(x = 0:10,
   out <- NULL
   for (i in 1:length(x))
   {
-    tmp <- hantush(x = x[i], y = y[i],baseProps = baseProps, dbg = dbg)$res
+    tmp <- hantush(x = x[i], y = y[i], baseProps = baseProps, dbg = dbg)$res
     out <- rbind(out, tmp)
   }
-  
-  if (dbg)
-  {
-    cat(sprintf("Head of %4.5f m at position %5.2f m (x), %5.2f (y)\n", out$head[i],x[i], y[i]))
+
+  if (dbg) {
+    cat(sprintf("Head of %4.5f m at position %5.2f m (x), %5.2f (y)\n", out$head[i], x[i], y[i]))
   }
-  
-  
+
+
   maxSimTime <- max(out$timeSteps)
-  
-  simTime <- out[out$timeSteps == maxSimTime,c("x", "y","head") ]
-  
-  
-  out <- list(timeSteps = out,
-              simTime = simTime,
-              baseProps = baseProps
+
+  simTime <- out[out$timeSteps == maxSimTime, c("x", "y", "head") ]
+
+
+  out <- list(
+    timeSteps = out,
+    simTime = simTime,
+    baseProps = baseProps
   )
-  
+
   return(out)
 }
 
@@ -205,44 +210,47 @@ hantushDistances <- function(x = 0:10,
 #' @seealso \code{\link{baseProperties}} for basic model properties
 #' @export
 #' @examples
-#'  baseProps <- baseProperties( time = 2^(0:6),
-#'                              infiltrationRate = 1,
-#'                              basinWidth = 10,
-#'                              basinLength = 50,
-#'                              horizConductivity = 10,
-#'                              iniHead = 10,
-#'                              specificYield = 0.2,
-#'                              numberTimeSteps = 10)
+#' baseProps <- baseProperties(
+#'   time = 2^(0:6),
+#'   infiltrationRate = 1,
+#'   basinWidth = 10,
+#'   basinLength = 50,
+#'   horizConductivity = 10,
+#'   iniHead = 10,
+#'   specificYield = 0.2,
+#'   numberTimeSteps = 10
+#' )
 #' res <- hantushDistancesBaseProps(baseProps = baseProps)
 #' cols <- length(unique(res$dat[[res$changedBaseProp.Name]]))
 #' mainTxt <- sprintf("Changed baseProperty: %s", res$changedBaseProp.Name)
 #' xyplot(WLincrease ~ x,
-#'        groups=res$dat[[res$changedBaseProp.Name]],
-#'        data=res$dat,
-#'        type="b",
-#'        auto.key=list(columns=cols),
-#'        main=mainTxt)
-
-hantushDistancesBaseProps <- function(x = seq(0,200, 5),
+#'   groups = res$dat[[res$changedBaseProp.Name]],
+#'   data = res$dat,
+#'   type = "b",
+#'   auto.key = list(columns = cols),
+#'   main = mainTxt
+#' )
+hantushDistancesBaseProps <- function(x = seq(0, 200, 5),
                                       y = rep(0, length(x)),
-                                      baseProps = baseProperties( time = 2 ^ (0:6),
-                                                                  infiltrationRate = 1,
-                                                                  basinWidth = 10,
-                                                                  basinLength = 50,
-                                                                  horizConductivity = 10,
-                                                                  iniHead = 10,
-                                                                  specificYield = 0.2),
+                                      baseProps = baseProperties(
+                                        time = 2^(0:6),
+                                        infiltrationRate = 1,
+                                        basinWidth = 10,
+                                        basinLength = 50,
+                                        horizConductivity = 10,
+                                        iniHead = 10,
+                                        specificYield = 0.2
+                                      ),
                                       dbg = FALSE) {
   newRes <- NULL
-  
+
   multiplePars <- unlist(lapply(X = baseProps, FUN = length))
   multipleParVals <- NULL
   changedBaseProp.Name <- ""
-  
+
   if (any(multiplePars > 1)) {
     selMultiplePars <- which(multiplePars > 1)
-    if (length(selMultiplePars) == 1)
-    {
+    if (length(selMultiplePars) == 1) {
       multipleParVals <- baseProps[selMultiplePars]
       changedBaseProp.Name <- names(multipleParVals)
     } else {
@@ -254,30 +262,32 @@ hantushDistancesBaseProps <- function(x = seq(0,200, 5),
   } else {
     multipleParVals <- baseProps$time ### select a random variable from baseProp
   }
-  
+
   baseProps.sel <- baseProps
-  
+
   for (parVal in as.vector(multipleParVals[[1]]))
   {
-    
-    if (any(multiplePars > 1))
-    {
-      cat(sprintf("Calculating results for changed baseProperty '%s': %3.5f  ... ",
-                  changedBaseProp.Name,
-                  parVal))
+    if (any(multiplePars > 1)) {
+      cat(sprintf(
+        "Calculating results for changed baseProperty '%s': %3.5f  ... ",
+        changedBaseProp.Name,
+        parVal
+      ))
     }
 
-     baseProps.sel[[ changedBaseProp.Name]] <- parVal
-      
+    baseProps.sel[[ changedBaseProp.Name]] <- parVal
 
-    res <- hantushDistances(x = x,
-                            y = y,
-                            baseProps = baseProps.sel,
-                            dbg = dbg)
-    
-    
-    res$simTime$WLincrease <- res$simTime$head -  res$baseProps$iniHead
-    
+
+    res <- hantushDistances(
+      x = x,
+      y = y,
+      baseProps = baseProps.sel,
+      dbg = dbg
+    )
+
+
+    res$simTime$WLincrease <- res$simTime$head - res$baseProps$iniHead
+
     if (any(multiplePars > 1)) {
       changedBaseProp <- data.frame(rep(parVal, nrow(res$simTime)))
       names(changedBaseProp) <- names(multipleParVals)
@@ -285,15 +295,17 @@ hantushDistancesBaseProps <- function(x = seq(0,200, 5),
     } else {
       tmpRes <- res$simTime
     }
-    
+
     newRes <- rbind(newRes, tmpRes)
-    
+
     if (any(multiplePars > 1)) {
-      cat("Done!\n") }
+      cat("Done!\n")
+    }
   }
-  
-  return(list(dat = newRes,
-              changedBaseProp.Name = changedBaseProp.Name,
-              baseProps = baseProps)
-  )
+
+  return(list(
+    dat = newRes,
+    changedBaseProp.Name = changedBaseProp.Name,
+    baseProps = baseProps
+  ))
 }

@@ -3,7 +3,5 @@
 #
 
 test_that("hantushDistancesBaseProps() works", {
-
   kwb.hantush:::hantushDistancesBaseProps()
 })
-

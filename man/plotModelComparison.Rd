@@ -24,8 +24,10 @@ USGS verification example: plot model comparison results
 \examples{
 ### Plot model comparison with title "Model comparison" and one plot for
 ### each page
-plotModelComparison(title = "Model comparison",
-                    layout = c(1,1))
+plotModelComparison(
+  title = "Model comparison",
+  layout = c(1, 1)
+)
 }
 \seealso{
 \code{\link{compareModelResults}} for comparison with USGS benchmark models

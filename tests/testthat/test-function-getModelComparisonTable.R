@@ -3,7 +3,5 @@
 #
 
 test_that("getModelComparisonTable() works", {
-
   kwb.hantush:::getModelComparisonTable()
 })
-
