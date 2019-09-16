@@ -3,7 +3,5 @@
 #
 
 test_that("baseProps_ex1() works", {
-
   kwb.hantush:::baseProps_ex1()
 })
-

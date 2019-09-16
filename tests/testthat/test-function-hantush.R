@@ -3,7 +3,5 @@
 #
 
 test_that("hantush() works", {
-
   kwb.hantush:::hantush()
 })
-

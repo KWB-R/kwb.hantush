@@ -3,7 +3,5 @@
 #
 
 test_that("plotModelComparison() works", {
-
   kwb.hantush:::plotModelComparison()
 })
-

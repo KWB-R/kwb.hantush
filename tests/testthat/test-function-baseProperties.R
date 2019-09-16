@@ -3,7 +3,5 @@
 #
 
 test_that("baseProperties() works", {
-
   kwb.hantush:::baseProperties()
 })
-
