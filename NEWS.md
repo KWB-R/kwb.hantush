@@ -12,7 +12,7 @@ Second release on CRAN:
 * Changed parameterisation and cleaned function hantush_distances() (#3) 
 
 
-Cite as: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.595401)](https://doi.org/10.5281/zenodo.595401)
+Cite as: [![DOI](https://zenodo.org/badge/23293/KWB-R/kwb.hantush.svg)](https://zenodo.org/badge/latestdoi/23293/KWB-R/kwb.hantush)
 
 
 # [kwb.hantush 0.2.1](https://github.com/KWB-R/kwb.hantush/releases/tag/v.0.2.1) 
@@ -20,5 +20,3 @@ Cite as: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.595401)](https://do
 * First release as published on CRAN
 
 * Cite as: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.61613.svg)](https://doi.org/10.5281/zenodo.61613)
-
-10.5281/zenodo.595401
