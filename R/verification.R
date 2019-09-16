@@ -1,6 +1,6 @@
 #' USGS verification example: base parameterisation
 #' @description USGS verification example
-#' @references p.23, http://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf
+#' @references p.23, https://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf
 #' @export
 baseProps_ex1 <- function() {
   
@@ -18,7 +18,7 @@ baseProps_ex1 <- function() {
 #' @param x distance from the center of the recharge basin in the x direction (L)
 #' @param baseProps basic model properties as retrieved by baseProps_ex1()
 #' @param dbg If True additional messages on debug messages
-#' @references p.23, http://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf
+#' @references p.23, https://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf
 #' @export
 #' @examples
 #' res <- example1()
@@ -51,7 +51,7 @@ example1 <- function(x = c(0, 0.3, 3.3, 6.6, 10, 20, 25, 30, 40, 50, 75, 100, 15
 
 #' USGS verification example: get model comparison table
 #' @return data.frame with water level increase of different model approaches
-#' @references Table 5, p.25, http://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf
+#' @references Table 5, p.25, https://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf
 #' @importFrom utils read.csv
 #' @export
 #' @examples
@@ -73,7 +73,7 @@ getModelComparisonTable <- function() {
 #' @return data.frame with R results and other model including all goodness of fit
 #' criteria calculated with gof() of package hydrogof
 #' @export
-#' @references Table 5, p.25, http://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf
+#' @references Table 5, p.25, https://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf
 #' @seealso \code{\link{example1}} for the USGS example parameterisation with distances
 #' @importFrom stats reshape
 compareModelResults <- function(conf = example1() ) {

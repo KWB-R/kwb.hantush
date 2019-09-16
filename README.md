@@ -10,7 +10,7 @@
 <img src="kwb_hantush.png" alt="kwb.hantush" />
   
 An R package for calculating groundwater mounding beneath an infiltration basin
-based on the [Hantush equation, 1967](http://doi.org/10.1029/WR003i001p00227)
+based on the [Hantush equation, 1967](https://doi.org/10.1029/WR003i001p00227)
 
 
 Impact factor: [![Research software impact](http://depsy.org/api/package/cran/kwb.hantush/badge.svg)](http://depsy.org/package/r/kwb.hantush)
@@ -41,5 +41,6 @@ remotes::install_github("kwb-r/kwb.hantush")
 
 ## Documentation
 
-Development version: [https://kwb-r.github.io/kwb.hantush/dev](https://kwb-r.github.io/kwb.hantush/dev)
 Latest release: [https://kwb-r.github.io/kwb.hantush](https://kwb-r.github.io/kwb.hantush)
+
+Development version: [https://kwb-r.github.io/kwb.hantush/dev](https://kwb-r.github.io/kwb.hantush/dev)

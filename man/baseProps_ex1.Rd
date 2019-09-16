@@ -10,5 +10,5 @@ baseProps_ex1()
 USGS verification example
 }
 \references{
-p.23, http://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf
+p.23, https://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf
 }

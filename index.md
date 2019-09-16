@@ -10,7 +10,7 @@
 [![DOI](https://zenodo.org/badge/23293/KWB-R/kwb.hantush.svg)](https://zenodo.org/badge/latestdoi/23293/KWB-R/kwb.hantush)
 
 
-An R package for calculating groundwater mounding beneath an infiltration basin based on the [Hantush equation, 1967](http://doi.org/10.1029/WR003i001p00227). 
+An R package for calculating groundwater mounding beneath an infiltration basin based on the [Hantush equation, 1967](https://doi.org/10.1029/WR003i001p00227). 
 
 
 ## Installation
