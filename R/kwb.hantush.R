@@ -28,7 +28,7 @@ hantushS <- function(x, alpha, beta) {
 #' hantushSstar are printed on screen
 #' @return Hantush Sstar result
 #' @references p.22, \url{https://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf}
-#' @importFrom stats pnorm
+#' @importFrom stats integrate pnorm
 hantushSstar <- function(alpha, beta, dbg) {
   x <- stats::integrate(
     f = hantushS, lower = 0, upper = 1,
