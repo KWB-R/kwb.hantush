@@ -23,3 +23,9 @@ There were no ERRORs, WARNINGs or NOTEs
 ## Downstream dependencies
 
 There are currently no downstream dependencies for this package.
+
+## Resubmission
+
+This is a resubmission. In this version I have:
+
+* Replaced the MIT license with the CRAN template.
