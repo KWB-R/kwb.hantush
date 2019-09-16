@@ -39,7 +39,7 @@ also a vector for one of the base properties
                              horizConductivity = 10,
                              iniHead = 10,
                              specificYield = 0.2,
-                             numberTimeSteps = 15)
+                             numberTimeSteps = 10)
 res <- hantushDistancesBaseProps(baseProps = baseProps)
 cols <- length(unique(res$dat[[res$changedBaseProp.Name]]))
 mainTxt <- sprintf("Changed baseProperty: \%s", res$changedBaseProp.Name)
