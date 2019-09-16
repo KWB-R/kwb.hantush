@@ -13,3 +13,4 @@ cran-comments.md
 ^docs\.*
 ^_pkgdown\.yml$
 ^\.gitlab-ci\.yml$
+^CRAN-RELEASE$
