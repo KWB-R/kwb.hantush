@@ -2,7 +2,7 @@
 % Please edit documentation in R/verification.R
 \name{baseProps_ex1}
 \alias{baseProps_ex1}
-\title{USGS verification example: base parameteristion}
+\title{USGS verification example: base parameterisation}
 \usage{
 baseProps_ex1()
 }

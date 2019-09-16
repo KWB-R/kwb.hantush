@@ -16,7 +16,7 @@ Default: (compareModelResults())}
 \item{...}{further arguments passed to function xyplot()}
 }
 \value{
-model comparison goplots
+model comparison goodness of fit plots
 }
 \description{
 USGS verification example: plot model comparison results

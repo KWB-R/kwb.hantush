@@ -3,7 +3,7 @@
 \name{compareModelResults}
 \alias{compareModelResults}
 \title{USGS verification example: compare R results for water level increase with other
-models and calculate statitical goodness of fit values (e.g. RMSE, PBIAS, NSE)}
+models and calculate statistical goodness of fit values (e.g. RMSE, PBIAS, NSE)}
 \usage{
 compareModelResults(conf = example1())
 }
@@ -16,7 +16,7 @@ criteria calculated with gof() of package hydrogof
 }
 \description{
 USGS verification example: compare R results for water level increase with other
-models and calculate statitical goodness of fit values (e.g. RMSE, PBIAS, NSE)
+models and calculate statistical goodness of fit values (e.g. RMSE, PBIAS, NSE)
 }
 \references{
 Table 5, p.25, http://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf

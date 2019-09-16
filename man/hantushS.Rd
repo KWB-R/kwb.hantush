@@ -7,7 +7,7 @@
 hantushS(x, alpha, beta)
 }
 \arguments{
-\item{x}{distance between 0 and half lenght of recharge basin}
+\item{x}{distance between 0 and half length of recharge basin}
 
 \item{alpha}{alpha}
 

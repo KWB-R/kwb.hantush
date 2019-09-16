@@ -10,7 +10,7 @@ erf <- function(x) {
 
 #' Helper function hantushS
 #'
-#' @param x  distance between 0 and half lenght of recharge basin
+#' @param x  distance between 0 and half length of recharge basin
 #' @param alpha alpha
 #' @param beta beta
 #' @return Hantush star
@@ -158,7 +158,7 @@ hantush <- function(x = 0,
 #' @param dbg If True additional debug messages are printed on screen
 #' @return Head at a given time after recharge begins
 #' @export
-#' @seealso \code{\link{hantush}} for parameterising the Hantush equation
+#' @seealso \code{\link{hantush}} for parameterizing the Hantush equation
 hantushDistances <- function(x = 0:10,
                              y = rep(0, length(x)),
                              baseProps = baseProperties(),

@@ -25,5 +25,5 @@ Head at a given time after recharge begins
 Hantush distance: for multiple coordinates
 }
 \seealso{
-\code{\link{hantush}} for parameterising the Hantush equation
+\code{\link{hantush}} for parameterizing the Hantush equation
 }

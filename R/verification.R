@@ -1,4 +1,4 @@
-#' USGS verification example: base parameteristion
+#' USGS verification example: base parameterisation
 #' @description USGS verification example
 #' @references p.23, http://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf
 #' @export
@@ -68,7 +68,7 @@ getModelComparisonTable <- function() {
 
 
 #' USGS verification example: compare R results for water level increase with other
-#' models and calculate statitical goodness of fit values (e.g. RMSE, PBIAS, NSE)
+#' models and calculate statistical goodness of fit values (e.g. RMSE, PBIAS, NSE)
 #' @param conf list as retrieved by example1()
 #' @return data.frame with R results and other model including all goodness of fit
 #' criteria calculated with gof() of package hydrogof
@@ -130,7 +130,7 @@ compareModelResults <- function(conf = example1() ) {
 #' Default: (compareModelResults())
 #' @param title to be used as title above plot (Default: "")
 #' @param ... further arguments passed to function xyplot()
-#' @return model comparison goplots
+#' @return model comparison goodness of fit plots
 #' @export
 #' @seealso \code{\link{compareModelResults}} for comparison with USGS benchmark models
 #' @importFrom lattice xyplot
