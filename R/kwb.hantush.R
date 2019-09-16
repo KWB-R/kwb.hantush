@@ -2,7 +2,7 @@
 #'
 #' @param x x
 #' @return Error function result
-#' @references https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Normal.html
+#' @references \url{https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Normal.html}
 #' @importFrom stats pnorm
 erf <- function(x) {
   2 * stats::pnorm(x * sqrt(2)) - 1
@@ -14,7 +14,7 @@ erf <- function(x) {
 #' @param alpha alpha
 #' @param beta beta
 #' @return Hantush star
-#' @references p.22, http://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf
+#' @references p.22, \url{https://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf}
 hantushS <- function(x, alpha, beta) {
   xRoot <- sqrt(x)
   erf(alpha/xRoot) * erf(beta/xRoot)
@@ -27,7 +27,7 @@ hantushS <- function(x, alpha, beta) {
 #' @param dbg If True additional messages on integration quality of function
 #' hantushSstar are printed on screen
 #' @return Hantush Sstar result
-#' @references p.22, http://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf
+#' @references p.22, \url{https://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf}
 #' @importFrom stats pnorm
 hantushSstar <- function(alpha, beta, dbg) {
   
@@ -57,7 +57,7 @@ hantushSstar <- function(alpha, beta, dbg) {
 #' thickness calculation (Default: 150)
 #' @return Base properties for Hantush equation
 #' @export
-#' @references p.22, http://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf
+#' @references p.22, \url{https://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf}
 baseProperties <- function(time = 10,
                             basinWidth = 10, ### m
                             basinLength = 10, ### m
@@ -88,7 +88,7 @@ baseProperties <- function(time = 10,
 #' hantushSstar are printed on screen
 #' @return Head at a given time after recharge begins
 #' @export
-#' @references p.22, http://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf
+#' @references p.22, \url{https://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf}
 #' @seealso \code{\link{baseProperties}} for basic model properties
 
 hantush <- function(x = 0,

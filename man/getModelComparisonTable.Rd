@@ -16,5 +16,5 @@ USGS verification example: get model comparison table
 modelComparison <- getModelComparisonTable()
 }
 \references{
-Table 5, p.25, https://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf
+Table 5, p.25, \url{https://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf}
 }

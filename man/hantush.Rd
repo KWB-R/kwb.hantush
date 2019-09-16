@@ -23,7 +23,7 @@ Head at a given time after recharge begins
 Hantush equation
 }
 \references{
-p.22, http://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf
+p.22, \url{https://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf}
 }
 \seealso{
 \code{\link{baseProperties}} for basic model properties

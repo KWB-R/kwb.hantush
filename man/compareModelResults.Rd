@@ -19,7 +19,7 @@ USGS verification example: compare R results for water level increase with other
 models and calculate statistical goodness of fit values (e.g. RMSE, PBIAS, NSE)
 }
 \references{
-Table 5, p.25, https://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf
+Table 5, p.25, \url{https://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf}
 }
 \seealso{
 \code{\link{example1}} for the USGS example parameterisation with distances

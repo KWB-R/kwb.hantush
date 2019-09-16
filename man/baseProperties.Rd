@@ -34,5 +34,5 @@ Base properties for Hantush equation
 Hantush equation base properties
 }
 \references{
-p.22, http://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf
+p.22, \url{https://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf}
 }

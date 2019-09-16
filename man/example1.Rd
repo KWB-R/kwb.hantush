@@ -37,5 +37,5 @@ modelComparison <- compareModelResults(conf = res)
 plotModelComparison(modelComparison = modelComparison)
 }
 \references{
-p.23, https://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf
+p.23, \url{https://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf}
 }
