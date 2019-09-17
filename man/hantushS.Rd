@@ -7,7 +7,7 @@
 hantushS(x, alpha, beta)
 }
 \arguments{
-\item{x}{distance between 0 and half lenght of recharge basin}
+\item{x}{distance between 0 and half length of recharge basin}
 
 \item{alpha}{alpha}
 
@@ -20,5 +20,5 @@ Hantush star
 Helper function hantushS
 }
 \references{
-p.22, http://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf
+p.22, \url{https://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf}
 }

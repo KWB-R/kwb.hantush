@@ -34,8 +34,8 @@ library(kwb.hantush)
 
 ## 2.2 Model validation
  
-For comparing the implementation of the [Hantush equation, 1967](http://doi.org/10.1029/WR003i001p00227) the results are 
-compared to the [USGS benchmark example (page 25)](https://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf#page=35). The results can be visualised with the following code:
+For comparing the implementation of the [Hantush equation, 1967](https://doi.org/10.1029/WR003i001p00227) the results are 
+compared to the [USGS benchmark example (page 25)](https://pubs.usgs.gov/sir/2010/5102/support/sir2010-5102.pdf#page=35). The results can be visualized with the following code:
 
 ```{r}
 ### Comparision of R results to all 
@@ -67,7 +67,7 @@ baseProps <- baseProperties( time = 2^(0:6), ## day, for 6 different times !
 res <- hantushDistancesBaseProps(baseProps = baseProps)
 ```
 
-## 3.3 Ploting the results
+## 3.3 Plotting the results
 
 
 

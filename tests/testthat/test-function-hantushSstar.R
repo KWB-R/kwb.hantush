@@ -3,7 +3,5 @@
 #
 
 test_that("hantushSstar() works", {
-
   expect_error(kwb.hantush:::hantushSstar())
 })
-

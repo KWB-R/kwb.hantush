@@ -11,5 +11,6 @@ cran-comments.md
 ^appveyor\.yml$
 ^codecov\.yml$
 ^docs\.*
-_pkgdown.yaml
-.gitlab-ci.yml
+^_pkgdown\.yml$
+^\.gitlab-ci\.yml$
+^CRAN-RELEASE$

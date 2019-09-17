@@ -16,5 +16,5 @@ Error function result
 Error function
 }
 \references{
-https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Normal.html
+\url{https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Normal.html}
 }
