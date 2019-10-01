@@ -2,6 +2,7 @@
 [![Build Status](https://travis-ci.org/KWB-R/kwb.hantush.svg?branch=master)](https://travis-ci.org/KWB-R/kwb.hantush)
 [![codecov](https://codecov.io/github/KWB-R/kwb.hantush/branch/master/graphs/badge.svg)](https://codecov.io/github/KWB-R/kwb.hantush)
 [![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
+[![Dependencies](https://tinyverse.netlify.com/badge/kwb.hantush)](https://cran.r-project.org/package=kwb.hantush)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/kwb.hantush)](http://cran.r-project.org/package=kwb.hantush)
 [![](http://cranlogs.r-pkg.org/badges/grand-total/kwb.hantush)](http://cran.rstudio.com/web/packages/kwb.hantush/index.html)
 [![](http://cranlogs.r-pkg.org/badges/kwb.hantush)](http://cran.rstudio.com/web/packages/kwb.hantush/index.html)

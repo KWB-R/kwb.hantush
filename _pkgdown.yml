@@ -9,6 +9,9 @@ authors:
 template:
   params:
     bootswatch: cerulean
+    docsearch:
+      api_key: 52fd1b0ab7ea87750c434ff1dbaff9ff
+      index_name: kwb_hantush
 
 development:
   mode: auto
